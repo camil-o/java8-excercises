@@ -10,7 +10,11 @@ numbers[0] = 42
 print(numbers[0])
 names[0] = 'Fred'
 
-for each (var elem in numbers) print(elem)
+for each(var elem
+in
+numbers
+)
+print(elem)
 
 for (var i in names) print(i + ": " + names[i])
 

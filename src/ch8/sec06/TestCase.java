@@ -1,9 +1,10 @@
 package ch8.sec06;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Repeatable;
 
 @Repeatable(TestCases.class)
 public @interface TestCase {
-   String params();
-   String expected();   
+    String params();
+
+    String expected();
 }

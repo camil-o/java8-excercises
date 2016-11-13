@@ -1,38 +1,39 @@
 package ch9.sec05;
 
-import java.util.*;
-import java.util.logging.*;
+import java.util.BitSet;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 public class Misc {
-   public static void main(String[] args) {
-      double x = Double.parseDouble("+1.0");
-      int n = Integer.parseInt("+1");
-      System.out.printf("%f %d\n", x, n);
+    private String directions;
 
-      Logger.getGlobal().info("x=" + x);
+    public static void main(String[] args) {
+        double x = Double.parseDouble("+1.0");
+        int n = Integer.parseInt("+1");
+        System.out.printf("%f %d\n", x, n);
 
-      try {
-         new Misc().process(null);
-      } catch (Exception ex) {
-         ex.printStackTrace();
-      }
+        Logger.getGlobal().info("x=" + x);
 
-      byte[] bytes = { (byte) 0b10101100, (byte) 0b00101000 };
-      BitSet primes = BitSet.valueOf(bytes);
-      System.out.println(primes);
-      long[] longs = { 0x100010116L, 0x1L, 0x1L, 0L, 0x1L };
-      BitSet powersOfTwo = BitSet.valueOf(longs);
-      System.out.println(powersOfTwo);
-      for (byte b : powersOfTwo.toByteArray())
-         System.out.print(Integer.toBinaryString(Byte.toUnsignedInt(b)));
-      System.out.println();
-      System.out.println(powersOfTwo.stream().sum());
-   }
+        try {
+            new Misc().process(null);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
-   private String directions;
+        byte[] bytes = {(byte) 0b10101100, (byte) 0b00101000};
+        BitSet primes = BitSet.valueOf(bytes);
+        System.out.println(primes);
+        long[] longs = {0x100010116L, 0x1L, 0x1L, 0L, 0x1L};
+        BitSet powersOfTwo = BitSet.valueOf(longs);
+        System.out.println(powersOfTwo);
+        for (byte b : powersOfTwo.toByteArray())
+            System.out.print(Integer.toBinaryString(Byte.toUnsignedInt(b)));
+        System.out.println();
+        System.out.println(powersOfTwo.stream().sum());
+    }
 
-   public void process(String directions) {
-      this.directions = Objects.requireNonNull(directions,
-         "directions must not be null");           
-   }
+    public void process(String directions) {
+        this.directions = Objects.requireNonNull(directions,
+                "directions must not be null");
+    }
 }
